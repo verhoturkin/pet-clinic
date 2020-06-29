@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 /**
  * @author Alexander Verkhoturkin
- * @created 29/06/2020 - 10:58
+ * created 29/06/2020 - 10:58
  */
 public class Pet {
     private PetType petType;
