@@ -29,13 +29,13 @@ public class DataLoader implements CommandLineRunner {
         Owner owner1 = new Owner();
         owner1.setId(1L);
         owner1.setFirstName("Owner1first");
-        owner1.setFirstName("Owner1last");
+        owner1.setLastName("Owner1last");
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setId(2L);
         owner2.setFirstName("Owner2first");
-        owner2.setFirstName("Owner2last");
+        owner2.setLastName("Owner2last");
         ownerService.save(owner2);
 
         System.out.println("Loaded owners");
