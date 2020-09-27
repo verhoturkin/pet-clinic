@@ -1,6 +1,7 @@
 package com.example.petclinic.bootstrap;
 
 import com.example.petclinic.model.Owner;
+import com.example.petclinic.model.Pet;
 import com.example.petclinic.model.PetType;
 import com.example.petclinic.model.Vet;
 import com.example.petclinic.services.OwnerService;
@@ -8,6 +9,9 @@ import com.example.petclinic.services.PetTypeService;
 import com.example.petclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * created 29/06/2020 - 18:58
@@ -39,15 +43,37 @@ public class DataLoader implements CommandLineRunner {
         PetType savedCatPetType = petTypeService.save(dog);
 
         Owner owner1 = new Owner();
-        owner1.setFirstName("Owner1first");
-        owner1.setLastName("Owner1last");
+        owner1.setFirstName("Owner1_first");
+        owner1.setLastName("Owner1_last");
+        owner1.setAddress("Owner1_address");
+        owner1.setCity("Owner1_city");
+        owner1.setTelephone("1231231234");
+
+        Pet pet1 = new Pet();
+        pet1.setPetType(savedDogPetType);
+        pet1.setOwner(owner1);
+        pet1.setBirthday(LocalDate.now());
+        pet1.setName("Pet1");
+        owner1.getPets().add(pet1);
+
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
-        owner2.setFirstName("Owner2first");
-        owner2.setLastName("Owner2last");
-        ownerService.save(owner2);
+        owner2.setFirstName("Owner2_first");
+        owner2.setLastName("Owner2_last");
+        owner2.setAddress("Owner2_address");
+        owner2.setCity("Owner2_city");
+        owner2.setTelephone("1231231234");
 
+        Pet pet2 = new Pet();
+        pet2.setPetType(savedCatPetType);
+        pet2.setOwner(owner2);
+        pet2.setBirthday(LocalDate.now());
+        pet2.setName("Pet2");
+        owner2.getPets().add(pet2);
+
+        ownerService.save(owner2);
+        
         System.out.println("Loaded owners");
 
         Vet vet1 = new Vet();
