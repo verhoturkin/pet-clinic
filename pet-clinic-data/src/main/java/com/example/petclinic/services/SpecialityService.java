@@ -7,5 +7,5 @@ import com.example.petclinic.model.Speciality;
  *
  * @author Alexander Verkhoturkin
  */
-public interface SpecialitiesService extends CrudService<Speciality, Long> {
+public interface SpecialityService extends CrudService<Speciality, Long> {
 }
