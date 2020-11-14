@@ -1,17 +1,29 @@
 package com.example.petclinic.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 /**
  * @author Alexander Verkhoturkin
  * created 29/06/2020 - 10:58
  */
+@Entity
+@Table(name = "pets")
 public class Pet extends BaseEntity {
 
+    @Column(name = "name")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "type_id")
     private PetType petType;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
     private Owner owner;
-    private LocalDate birthday;
+
+    @Column(name = "birth_Date")
+    private LocalDate birthDate;
 
     public String getName() {
         return name;
@@ -37,11 +49,11 @@ public class Pet extends BaseEntity {
         this.owner = owner;
     }
 
-    public LocalDate getBirthday() {
-        return birthday;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
+    public void setBirthDate(LocalDate birthday) {
+        this.birthDate = birthday;
     }
 }
